@@ -7,12 +7,14 @@
   
 body
   font-family 'Raleway', sans-serif
+  color #fff
   &::-webkit-scrollbar
     display none !important
+  background-color #000
 
 .container
   width 100%
-  max-width 620px
+  max-width 1120px
   margin 0 auto
 
 .page-enter-active, .page-leave-active 
