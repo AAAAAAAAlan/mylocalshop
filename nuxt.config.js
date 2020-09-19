@@ -29,12 +29,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/stylus/main.stylus'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['~/plugins/firebase.js'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -52,7 +52,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/svg-sprite'],
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
