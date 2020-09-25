@@ -34,7 +34,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/firebase.js'],
+  plugins: [],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -52,7 +52,33 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/svg-sprite'],
+  modules: [
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyD1iwaoAlD6AyYVU0IbPbgwcMsk3VuTyGk',
+          authDomain: 'mylocalshop-cf7ff.firebaseapp.com',
+          databaseURL: 'https://mylocalshop-cf7ff.firebaseio.com',
+          projectId: 'mylocalshop-cf7ff',
+          storageBucket: 'mylocalshop-cf7ff.appspot.com',
+          messagingSenderId: '384673207666',
+          appId: '1:384673207666:web:dc7644009c6f9f78b6b9eb',
+        },
+        services: {
+          auth: {
+            persistence: 'local',
+            initialize: {
+              onAuthStateChangedAction: 'onAuthStateChanged',
+            },
+          },
+          firestore: true,
+          functions: true,
+        },
+      },
+    ],
+    '@nuxtjs/svg-sprite',
+  ],
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

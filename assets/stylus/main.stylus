@@ -18,7 +18,15 @@ body
   margin 0 auto
 
 .page-enter-active, .page-leave-active 
-  transition opacity .5s
+  transition all .3s ease
 
 .page-enter, .page-leave-active 
-  opacity 0
+  transform translateX(10px)
+
+@media (max-width: 1120px)
+  .container
+    padding 0 15px
+
+@media (max-width: 600px)
+  .container
+    padding 0 5px
