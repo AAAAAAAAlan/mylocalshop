@@ -1,5 +1,5 @@
 <template lang="pug">
-  form.login-form(@submit.prevent='signInUser' v-if='!authUser')
+  form.login-form(@submit.prevent='signInUser' v-if='!$strapi.user')
     h1.cursor-pointer.select-none(@click='newAccount = !newAccount')
       transition(name='fade' mode='out-in')
         span(:key='newAccount') {{ newAccount ? 'У МЕНЯ УЖЕ ЕСТЬ АККАУНТ' : 'У МЕНЯ ЕЩЁ НЕТ АККАУНТА' }}
@@ -10,8 +10,8 @@
     transition(name='slideY' mode='out-in')
       button(v-if='newAccount' type='submit' :disabled='disabledRegister' key='reg') ЗАРЕГИСТРИРОВАТЬСЯ
       button(v-else type='submit' key='log') ВОЙТИ
-  //- Временное рещение, затем реализовать личный кабинет.
-  h1(v-else) Залогинен
+  //- Временное решение, затем реализовать личный кабинет.
+  h1(v-else) {{ $strapi.user }}
 </template>
 
 <script>
@@ -42,19 +42,20 @@ export default {
     async signInUser() {
       if (this.newAccount === true) {
         try {
-          await this.$fireAuth.createUserWithEmailAndPassword(
-            this.username,
-            this.password
-          )
+          await this.$strapi.register({
+            email: this.username,
+            username: this.username,
+            password: this.password,
+          })
         } catch (e) {
           alert(e)
         }
       } else
         try {
-          await this.$fireAuth.signInWithEmailAndPassword(
-            this.username,
-            this.password
-          )
+          await this.$strapi.login({
+            identifier: this.username,
+            password: this.password,
+          })
         } catch (e) {
           alert(e)
         }
@@ -76,13 +77,11 @@ export default {
     span
       padding 5px
       border 1px solid white
-      // border-radius 12px
   button
     color white
     width 100%
     height 46px
     background #1B1B1B
-    // border-radius 12px
     text-align center
     margin-top 15px
     &:disabled
@@ -92,7 +91,6 @@ export default {
     width 100%
     height 46px
     background #E91F4F
-    // border-radius 12px
     text-align center
     margin-top 15px
     &::placeholder

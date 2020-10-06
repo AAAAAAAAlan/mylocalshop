@@ -1,46 +1,18 @@
 export const state = () => ({
-  authUser: null,
-  claims: null,
+  products: null,
 })
 
-export const actions = {
-  onAuthStateChanged({ commit }, { authUser }) {
-    if (!authUser) {
-      commit('RESET_STORE')
-      return
-    }
-    commit('SET_AUTH_USER', { authUser })
-
-    authUser.getIdTokenResult().then((idTokenResult) => {
-      commit('SET_AUTH_USER_CLAIMS', idTokenResult.claims)
-    })
-  },
-}
-
-export const getters = {
-  isLoggedIn: (state) => {
-    try {
-      return state.authUser.id !== null
-    } catch {
-      return false
-    }
-  },
-}
-
 export const mutations = {
-  RESET_STORE: (state) => {
-    state.authUser = null
-    state.claims = null
+  SET_PRODUCTS(state, products) {
+    state.products = products
   },
+}
 
-  SET_AUTH_USER: (state, { authUser }) => {
-    state.authUser = {
-      uid: authUser.uid,
-      email: authUser.email,
-    }
-  },
-
-  SET_AUTH_USER_CLAIMS(state, claims) {
-    state.claims = claims
+export const actions = {
+  async nuxtServerInit({ commit }, { app }) {
+    const productCategories = await app.$axios.get(
+      'http://localhost:1337/products'
+    )
+    commit('SET_PRODUCTS', productCategories.data)
   },
 }

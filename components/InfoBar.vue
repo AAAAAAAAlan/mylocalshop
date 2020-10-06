@@ -27,4 +27,18 @@ export default {}
     font-size 16px
     border 1px solid #E91F4F
     box-sizing border-box
+
+@media (max-width: 600px)
+  .info-bar
+    display flex
+    flex-direction column
+    margin-top 40px
+    display none
+    h1
+      text-align center
+      font-size 16px
+
+@media (max-width: 1145px)
+  .product-card
+    margin-bottom -150px
 </style>
