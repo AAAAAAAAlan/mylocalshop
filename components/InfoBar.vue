@@ -16,7 +16,6 @@ export default {}
 
 <style lang="stylus" scoped>
 .info-bar
-  margin-top 105px
   h1
     font-style normal
     font-weight 800

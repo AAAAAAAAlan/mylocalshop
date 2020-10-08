@@ -1,9 +1,9 @@
 <template lang="pug">
   .navbar.flex.justify-between.items-center
-    h1.font-bold.text-lg My Local Shop.
+    h1.font-bold.text-lg.cursor-pointer(@click='$router.push(`/`)') My Local Shop.
     .links-container.flex
       nuxt-link.link.font-bold.cursor-pointer(v-for='(link, index) in links' :key='index' :to='link.url') {{ link.name }}
-      //- nuxt-link.link.font-bold.cursor-pointer(v-if='claims.admin' to='/admin') Админпанель
+      nuxt-link.link.font-bold.cursor-pointer(v-if='$strapi.user && $strapi.user.role.name === "Admin"' to='/admin') Админпанель
       a.link.font-bold.cursor-pointer(v-if='$strapi.user' @click='signOut') Выйти
       nuxt-link.link.font-bold.cursor-pointer(v-else to='/login') Войти
 </template>
@@ -37,6 +37,7 @@ export default {
 <style lang="stylus" scoped>
 .navbar
   transition .5s ease-in-out
+  margin-bottom 70px
   h1
   .links-container
     .link

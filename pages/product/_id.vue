@@ -1,14 +1,14 @@
 <template lang="pug">
-  ProductCard(:product='products[productId]')
+  ProductCardPage(:product='products[productId]')
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import ProductCard from '~/components/ProductsSection/ProductCard'
+import ProductCardPage from '~/components/ProductsSection/ProductCardPage'
 
 export default {
   components: {
-    ProductCard,
+    ProductCardPage,
   },
   computed: {
     ...mapState({

@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'ProductCard',
   props: {
     product: {
       type: Object,
@@ -22,7 +23,6 @@ export default {
       for (let i = 0; i < this.product.categories.length; i++) {
         category.push(this.product.categories[i].name)
       }
-
       return category.join(', ')
     },
   },
@@ -36,6 +36,8 @@ export default {
   .product-description
     text-transform uppercase
     padding 30px
+    max-width 300px
+    width 100%
     .type
        font-size 14px
     .title
@@ -43,12 +45,12 @@ export default {
       font-weight 600
       max-width 300px
       margin 10px 0
+      margin-right auto
   &:hover
     text-decoration underline
 
 @media (max-width: 600px)
   .product-card
-    // margin-bottom -150px
     img
       height 150px
     .product-description
@@ -57,10 +59,11 @@ export default {
       .type
         font-size 10px
       .title
-        font-size 17px
-        font-weight 600
-        max-width 300px
-        margin 10px 0
+        font-size: 17px;
+        font-weight: 600;
+        max-width: 130px;
+        margin: 10px 0;
+        margin-right: auto;
     &:hover
       text-decoration underline
 
