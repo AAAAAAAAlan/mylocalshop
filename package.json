@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/now-builder": "^0.17.3",
     "@nuxtjs/strapi": "^0.1.6",
     "@nuxtjs/svg-sprite": "^0.4.12",
     "firebase": "^7.21.0",

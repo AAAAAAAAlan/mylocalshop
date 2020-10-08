@@ -5,7 +5,7 @@
       h1 {{ product.name }}
       p {{ product.description }}
       ProductInfo(:info='product.categories')
-      ProductPurchase(@click.native='purchaseProduct')
+      ProductPurchase(@click.native='purchaseProduct' :product='product')
 </template>
 
 <script>

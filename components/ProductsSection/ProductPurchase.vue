@@ -2,8 +2,19 @@
   .product-purchase.flex.justify-center.items-center.cursor-pointer
     p 
       | Купить за 
-      span 2881 рублей
+      span {{ `${product.price} рублей` }}
 </template>
+
+<script>
+export default {
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+  },
+}
+</script>
 
 <style lang="stylus" scoped>
 .product-purchase
