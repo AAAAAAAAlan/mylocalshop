@@ -51,6 +51,7 @@ export default {
     margin-top 20px
     display block
     text-align center
+    margin-bottom 0
     h1
       margin 0
     .links-container
