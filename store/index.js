@@ -12,7 +12,7 @@ export const actions = {
   async nuxtServerInit({ commit }, { app }) {
     try {
       const productCategories = await app.$axios.get(
-        'http://localhost:1337/products'
+        'http://mylocalshop-backend.herokuapp.com/products'
       )
       commit('SET_PRODUCTS', productCategories.data)
     } catch (error) {
