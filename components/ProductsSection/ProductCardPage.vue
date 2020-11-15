@@ -1,6 +1,6 @@
 <template lang="pug">
   .product-card-page.flex.justify-center
-    img(:src="'http://mylocalshop-backend.herokuapp.com' + product.picture.url")
+    img(:src="'https://mylocalshop-backend.herokuapp.com' + product.picture.url")
     .product-description
       h1 {{ product.name }}
       p {{ product.description }}
