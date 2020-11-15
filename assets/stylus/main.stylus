@@ -18,10 +18,11 @@ body
   margin 0 auto
 
 .page-enter-active, .page-leave-active 
-  transition all 0.3s ease
+  transition-duration 0.3s
+  transition-property opacity
+  transition-timing-function ease
 
 .page-enter, .page-leave-active 
-  transform translateX(10px)
   opacity 0
 
 @media (max-width: 1120px)

@@ -15,7 +15,8 @@ export default {
       products: (state) => state.products,
     }),
     productId() {
-      return this.$route.path.split('/')[2] - 1
+      const id = this.$route.path.split('/')[2]
+      return this.products.findIndex((obj) => obj.id === id)
     },
   },
 }
