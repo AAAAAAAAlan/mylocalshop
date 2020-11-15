@@ -53,6 +53,9 @@ export default {
    ** Nuxt.js modules
    */
   modules: ['@nuxtjs/svg-sprite', '@nuxtjs/strapi', '@nuxtjs/axios'],
+  strapi: {
+    url: 'https://mylocalshop-backend.herokuapp.com/',
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
