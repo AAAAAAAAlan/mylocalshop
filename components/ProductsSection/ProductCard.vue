@@ -1,6 +1,6 @@
 <template lang="pug">
   .product-card.flex(@click='$router.push(`/product/${product.id}`)')
-    img.cursor-pointer(:src="'https://mylocalshop-backend.herokuapp.com' + product.picture.url")
+    img.cursor-pointer(:src="'https://www.km20.ru/upload/resize_cache/iblock/089/1800_1800_1/089b2817feabafe8a65690bcd0cf398b.jpg'")
     .product-description.cursor-pointer
       p.type {{ productCategory }}
       p.title {{ product.name }}
