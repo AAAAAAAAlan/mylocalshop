@@ -53,6 +53,9 @@ export default {
    ** Nuxt.js modules
    */
   modules: ['@nuxtjs/svg-sprite', '@nuxtjs/strapi', '@nuxtjs/axios'],
+  axios: {
+    timeout: 10000,
+  },
   strapi: {
     url: 'https://mylocalshop-backend.herokuapp.com/',
   },
